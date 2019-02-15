@@ -12,7 +12,15 @@ import math
 #print the matrix such that it looks like
 #the template in the top comment
 def print_matrix( matrix ):
-    pass
+    ret=''
+    for y in range(len(matrix)):
+        for x in range(len(matrix[y])):
+            ret+=str(matrix[y][x])+' '
+        ret+='\n'
+    return ret
+        
+        
+        
 
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
@@ -22,7 +30,11 @@ def ident( matrix ):
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    pass
+    mtemp=new_matrix(len(m2[0]),len(m1))
+    m2=mtemp
+    
+    
+    return print_matrix(m2)
 
 
 
