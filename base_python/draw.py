@@ -4,19 +4,26 @@ from matrix import *
 
 def draw_lines( matrix, screen, color ):
     #traverse through matrix
-    for i in range(len(matrix)):
-	x0=matrix[i][0]
-	y0=matrix[i][1]
-	x1=matrix[i+1][0]
-	y1=matrix[i+1][1]
-	draw_line(x0,y0, x1,y1, color)
+    for i in range(len(matrix)-1,2):
+        x0=matrix[i][0]
+        y0=matrix[i][1]
+        x1=matrix[i+1][0]
+        y1=matrix[i+1][1]
+        draw_line(x0,y0, x1,y1, color)
 
 def add_edge( matrix, x0, y0, z0, x1, y1, z1 ):
-    add_point()
+    add_point(matrix,x0,y0)
+    add_point(matrix,x1,y1)
+    return matrix
 
 def add_point( matrix, x, y, z=0 ):
-    pass
-
+    L=[x,y,z]
+    matrixA=[]
+    for col in matrix:
+        matrixA.append(col)
+    matrixA.append([x,y,z,1])
+    matrix=matrixA    
+    return matrix
 
 
 

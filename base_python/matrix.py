@@ -13,9 +13,12 @@ import math
 #the template in the top comment
 def print_matrix( matrix ):
     ret=''
-    for y in range(len(matrix)):
-        for x in range(len(matrix[y])):
-            ret+=str(matrix[y][x])+' '
+    
+    for x in range(len(matrix[0])):
+        it=0
+        while it<len(matrix):
+            ret+=str(matrix[it][x])+' '
+            it+=1
         ret+='\n'
     return ret
         
@@ -25,12 +28,21 @@ def print_matrix( matrix ):
 #turn the paramter matrix into an identity matrix
 #you may assume matrix is square
 def ident( matrix ):
-    pass
+    for i in range(len(matrix)):
+        matrix[i][i]=1
+    return matrix
 
 #multiply m1 by m2, modifying m2 to be the product
 #m1 * m2 -> m2
 def matrix_mult( m1, m2 ):
-    mtemp=new_matrix(len(m2[0]),len(m1))
+    mtemp=new_matrix(len(m1),len(m2))
+    for cols in range(len(mtemp[0])):#goes through matrix col by col
+        for item in range(len(mtemp)):
+            to_add=0
+            for second in range(len(mtemp[0])):
+                to_add+=m2[item][second]*m1[second][cols]
+            mtemp[item][cols]=to_add 
+
     m2=mtemp
     
     
