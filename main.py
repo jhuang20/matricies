@@ -18,11 +18,22 @@ print("tests of matrix multiplication. 1st one is multiply m2 by identity, secon
 print(matrix_mult(m3,m2))
 print(matrix_mult(m1, m2))
 print("testing lines...")
-p1=[300,300,0,1]
-p2=[500,200,0,1]#this is the first set of points
-p3=[400,400,0,1]
-matrix=add_point(matrix,1,1)
-matrix=add_edge(matrix,
+#matrix=add_point(matrix,1,1)
+matrix=add_edge(matrix,1,1,0,500,500,0)
+matrix=add_edge(matrix,1,500,0,500,1,0)
+matrix=add_edge(matrix,250,0,0,250,500,0)
+draw_lines(matrix,screen,color)
+#this is the fun part: drawing 1000 lines!
+for i in range(1000):
+    initX=i
+    initY=i
+    matrix=add_edge(matrix,initX,initY,0,abs(initX-i+250),abs(i-500),0)
+    draw_lines(matrix,screen,color)
+    j=i*i
+    k=i*j
+    color=[i%255,j%255, k%255]
+    matrix=[]
+save_ppm(screen,'test.ppm')
 print(matrix)
-#draw_lines( matrix, screen, color )
+draw_lines( matrix, screen, color )
 #display(screen)
