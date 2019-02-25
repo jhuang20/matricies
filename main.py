@@ -36,4 +36,4 @@ for i in range(1000):
 save_ppm(screen,'test.ppm')
 print(matrix)
 draw_lines( matrix, screen, color )
-#display(screen)
+display(screen)
